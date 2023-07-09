@@ -36,3 +36,13 @@ def washing_machine(request):
 def smart_watch(request):
     smart_watches = scrape_smart_watch()
     return render(request, 'blog/smart_watch.html', {'smart_watches': smart_watches})
+
+def search(request):
+    query = request.GET.get('query')
+    results = None
+    
+    if query:
+        results = product.objects.filter(name__icontains=query).order_by('-id')
+        
+    
+    return render(request, 'blog/search.html', {'results': results, 'query': query})
