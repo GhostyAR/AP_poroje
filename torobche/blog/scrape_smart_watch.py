@@ -2,6 +2,7 @@ from time import sleep
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
+from .models import product
 
 
 class Watch:
@@ -159,4 +160,6 @@ def scrape_smart_watch():
 
     for watch in watches.values():
         watch.UP = dict(zip(watch.urls, watch.price)) 
+        model_instance = product(name=watch.name,ulp= watch.UP, attr=watch.attrs)
+        model_instance.save()  
     return watches

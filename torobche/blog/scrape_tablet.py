@@ -2,6 +2,7 @@ from time import sleep
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
+from .models import product
 
 
 class Tablet:
@@ -154,5 +155,7 @@ def scrape_tablet():
 
     for tablet in tablets.values():
         tablet.UP = dict(zip(tablet.urls, tablet.price))
+        model_instance = product(name=tablet.name,ulp= tablet.UP, attr=tablet.attrs)
+        model_instance.save()  
 
     return tablets

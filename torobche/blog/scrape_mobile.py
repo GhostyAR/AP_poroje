@@ -2,6 +2,7 @@ from time import sleep
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
+from .models import product
 
 
 class Mobile:
@@ -48,8 +49,7 @@ def scrape_mobile():
             attribs[key] = value
 
         mobiles[new_name] = Mobile(new_name, attribs)
-        # model_instance = product(name=new_name, price=mobiles[new_name].price, urls=mobiles[new_name].urls)
-        # model_instance.save()
+
         torob.get(
             'https://torob.com/browse/94/%DA%AF%D9%88%D8%B4%DB%8C-%D9%85%D9%88%D8%A8%D8%A7%DB%8C%D9%84-mobile/')
         
@@ -86,8 +86,7 @@ def scrape_mobile():
                     mobiles[name].urls.append(link)
                 except:
                     pass
-                # model_instance = product(name=name, price=mobiles[new_name].price, urls=mobiles[new_name].urls)
-                # model_instance.save()
+
         except:
             pass
     digikala.close()
@@ -157,12 +156,13 @@ def scrape_mobile():
                     mobiles[name].urls.append(link)
                 except:
                     pass
-                # model_instance = product(name=name, price=mobiles[new_name].price, urls=mobiles[new_name].urls)
-                # model_instance.save()
+
         except:
             pass
     kimia_online.close()
 
     for mobile in mobiles.values():
         mobile.UP = dict(zip(mobile.urls, mobile.price))
+        model_instance = product(name=mobile.name,ulp= mobile.UP, attr=mobile.attrs)
+        model_instance.save()  
     return mobiles
