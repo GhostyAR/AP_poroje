@@ -1,0 +1,31 @@
+
+{% extends "blog/base.html" %}
+
+{% block content %}
+    {% if results %}
+        <h2>Results</h2>
+        {% for product in results %}
+            <article class="media content-section">
+                <div class="media-body">
+                    <div class="article-metadata">
+                        <a class="mr-2" href="{{ url }}">{{ product.name }}</a>
+                        {% for url, price in results.UP.items %}
+                            <div class="article-metadata">
+                                <a class="mr-2" href="{{ url }}">{{ price }}</a>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </article>
+        {% endfor %}
+    {% else %}
+        <p>No products found.</p>
+    {% endif %}
+{% endblock content %}
+
+
+
+
+
+
+
