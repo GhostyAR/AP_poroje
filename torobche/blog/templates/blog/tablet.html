@@ -1,0 +1,22 @@
+{% extends "blog/base.html" %}  {% block content %}
+<article class="media content-section">
+  <div class="media-body">
+    
+    {% for tablet in tablets.values  %}
+    <div class="article-metadata">    
+      <a class="mr-2" href="#">{{ tablet.name }}</a>
+    </div>
+    {% for url,price in tablet.UP.items %}
+    <div class="article-metadata">    
+        <a class="mr-2" href="{{ url }}">{{ price }}</a>
+      </div>
+    {% endfor %}
+    {% for key,value in tablet.attrs.items  %}
+    <div>
+      <p class="text-muted">{{ key }}</p>
+      <p class="text-muted">{{ value }}</p>
+    </div>
+    {% endfor %}
+    {% endfor %}
+</article>
+{% endblock content %}
