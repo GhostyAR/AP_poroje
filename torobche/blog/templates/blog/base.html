@@ -56,7 +56,7 @@
             </div>
           </div>
           <form action="{% url 'search' %}" method="GET" class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="text" name="query" placeholder="جستجو" aria-label="Search">
+            <input class="form-control mr-sm-2 text-lg-right" type="text" name="query" placeholder="جستجو" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">جستجو</button>
           </form>
         </div>
@@ -76,14 +76,14 @@
           </div>
           <div class="col-md-4">
             <div class="content-section">
-              <h3>فهرست</h3>
+              <h3 text-lg-right>فهرست</h3>
               <p class='text-muted'>
                 <ul class="list-group">
-                  <li class="list-group-item list-group-item-light" ><a href="{% url 'mobile' %}">موبایل</a> </li>
-                  <li class="list-group-item list-group-item-light" ><a href="{% url 'laptop' %}">لب تاپ</a></li>
-                  <li class="list-group-item list-group-item-light" ><a href="{% url 'smart_watch' %}">ساعت هوشمند</a></li>
-                  <li class="list-group-item list-group-item-light" ><a href="{% url 'washing_machine' %}">ماشین لباس شویی</a></li>
-                  <li class="list-group-item list-group-item-light" ><a href="{% url 'tablet' %}">تبلت</a></li>
+                  <li class="list-group-item list-group-item-light text-lg-right" ><a href="{% url 'mobile' %}">موبایل</a> </li>
+                  <li class="list-group-item list-group-item-light text-lg-right" ><a href="{% url 'laptop' %}">لب تاپ</a></li>
+                  <li class="list-group-item list-group-item-light text-lg-right" ><a href="{% url 'smart_watch' %}">ساعت هوشمند</a></li>
+                  <li class="list-group-item list-group-item-light text-lg-right" ><a href="{% url 'washing_machine' %}">ماشین لباس شویی</a></li>
+                  <li class="list-group-item list-group-item-light text-lg-right" ><a href="{% url 'tablet' %}">تبلت</a></li>
                 </ul>
               </p>
             </div>
