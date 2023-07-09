@@ -1,28 +1,27 @@
+{% extends "blog/base.html" %} {% block content %} {% if results %}
+<h2>نتیجه</h2>
+{% for product in results %}
+<article class="media content-section">
+  <div class="media-body">
+    <div class="article-metadata">
+      <a class="mr-2" href="{{ url }}">{{ product.name }}</a>
+      {% for url, price in product.ulp.items %}
+      <div class="article-metadata">
+        <a class="mr-2" href="{{ url }}">{{ price }}</a>
+      </div>
+      {% endfor %} {% for key,value in product.attr.items %}
 
-{% extends "blog/base.html" %}
-
-{% block content %}
-    {% if results %}
-        <h2>Results</h2>
-        {% for product in results %}
-            <article class="media content-section">
-                <div class="media-body">
-                    <div class="article-metadata">
-                        <a class="mr-2" href="{{ url }}">{{ product.name }}</a>
-                        {% for url, price in results.UP.items %}
-                            <div class="article-metadata">
-                                <a class="mr-2" href="{{ url }}">{{ price }}</a>
-                            </div>
-                        {% endfor %}
-                    </div>
-                </div>
-            </article>
-        {% endfor %}
-    {% else %}
-        <p>No products found.</p>
-    {% endif %}
-{% endblock content %}
-
+      <div>
+        <p class="text-muted">{{ key }}</p>
+        <p class="text-muted">{{ value }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</article>
+{% endfor %} {% else %}
+<p>محصولی یافت نشد</p>
+{% endif %} {% endblock content %}
 
 
 
