@@ -3,6 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 import re
+from .models import product
 
 
 
@@ -171,6 +172,8 @@ def scrape_washing_machine():
 
     for wm in washing_machines.values():
         wm.UP = dict(zip(wm.urls, wm.price))
+        model_instance = product(name=wm.name,ulp= wm.UP, attr=wm.attrs)
+        model_instance.save()  
 
 
     return washing_machines
