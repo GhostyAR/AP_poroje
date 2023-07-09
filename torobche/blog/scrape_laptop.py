@@ -2,8 +2,6 @@ from time import sleep
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
-from .models import product
-
 
 class Laptop:
     def __init__(self, name: str, attribs: dict):
@@ -48,8 +46,6 @@ def scrape_laptop():
             attribs[key] = value
 
         laptops[new_name] = Laptop(new_name, attribs)
-        model_instance = product(name=new_name, price=laptops[new_name].price, urls=laptops[new_name].urls)
-        model_instance.save()
         torob.get(
             'https://torob.com/browse/99/%D9%84%D9%BE-%D8%AA%D8%A7%D9%BE-%D9%88-%D9%86%D9%88%D8%AA-%D8%A8%D9%88%DA%A9-laptop/')
         sleep(2)
@@ -82,8 +78,6 @@ def scrape_laptop():
                     laptops[name].urls.append(link)
                 except:
                     pass
-                model_instance = product(name=name, price=laptops[new_name].price, urls=laptops[new_name].urls)
-                model_instance.save()
         except:
             pass
     digikala.close()
@@ -118,8 +112,6 @@ def scrape_laptop():
                     laptops[name].urls.append(link)
                 except:
                     pass
-                model_instance = product(name=name, price=laptops[new_name].price, urls=laptops[new_name].urls)
-                model_instance.save()
             divar.back()
             sleep(2)
         except:
@@ -150,8 +142,6 @@ def scrape_laptop():
                     laptops[name].urls.append(link)
                 except:
                     pass
-                model_instance = product(name=name, price=laptops[new_name].price, urls=laptops[new_name].urls)
-                model_instance.save()
         except:
             pass
     toprayan.close()
