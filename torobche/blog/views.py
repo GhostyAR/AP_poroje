@@ -1,17 +1,20 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+
 from .models import  product
-from .scrape_mobile import Mobile, scrape_mobile
+from .scrape_mobile import scrape_mobile
 from .scrape_tablet import scrape_tablet
 from .scrape_laptop import scrape_laptop
 from .scrape_washing_machine import scrape_washing_machine
 from .scrape_smart_watch import scrape_smart_watch
 
 def home(request):
-    return HttpResponse('<h1> Blog Home </h1>')
-
+    context = {
+        'product': product.objects.all()
+    }
+    return render(request, 'blog/home.html', context)
+  
 def about(request):
-    return HttpResponse('<h1> Blog About </h1>')
+    return render(request, 'blog/about.html', {'title': 'About'})
 
 def mobile(request):
     mobiles = scrape_mobile()
