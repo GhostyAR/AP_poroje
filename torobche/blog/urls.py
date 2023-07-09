@@ -11,5 +11,5 @@ urlpatterns = [
     path('smart_watch/', views.smart_watch, name='smart_watch'),
     path('washing_machine/', views.washing_machine, name='washing_machine'),
     path('tablet/', views.tablet, name='tablet'),
-    path('product/<pk>', views.mobile, name='mobile'),
+   
 ]
